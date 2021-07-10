@@ -14,7 +14,7 @@ Sub DQAnalysis()
     'Variables to hold volume of DQ ticks, Start, Stop
     Dim rowStart As Integer
     Dim rowEnd As Integer
-    Dim totalVolume As Integer
+    Dim totalVolume As Long
     totalVolume = 0
     rowEnd = 3013
     rowStart = 2
