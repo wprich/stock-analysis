@@ -1,0 +1,41 @@
+Sub DQAnalysis()
+    Worksheets("DQ Analysis").Activate
+    
+    Range("A1").Value = "DAQ0 (Ticker:DQ)"
+    
+    'Create a header row
+    Cells(3, 1).Value = "Year"
+    Cells(3, 2).Value = "Total Daily Volume"
+    Cells(3, 3).Value = "Return"
+    
+    'Ensures 2018 sheet is selected
+    Worksheets("2018").Activate
+    
+    'Variables to hold volume of DQ ticks, Start, Stop
+    Dim rowStart As Integer
+    Dim rowEnd As Integer
+    Dim totalVolume As Integer
+    totalVolume = 0
+    rowEnd = 3013
+    rowStart = 2
+    
+    'Check for ticks to add to totalVolume
+        For i = rowStart To rowEnd
+        
+        'Increases totalVolume for each tick counted
+            If Cells(i, 1).Value = "DQ" Then
+            totalVolume = totalVolume + Cells(i, 8).Value
+            End If
+            
+        Next i
+    
+    'Msg Box to display result
+        MsgBox (totalVolume)
+        
+    'Switch to DQ Analysis Worksheet
+    Worksheets("DQ Analysis").Activate
+        'Put year (2018) and totalVolume in appropriate Cells
+        Cells(4, 1).Value = 2018
+        Cells(4, 2).Value = totalVolume
+    
+End Sub
