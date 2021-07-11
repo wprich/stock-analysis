@@ -1,10 +1,10 @@
 Sub AllStocksAnalysis()
-        'Timer Variables
-    Dim startTime As Single
-    Dim endTime As Single
         
     Worksheets("All Stocks Analysis").Activate
     
+   'Timer Variables
+    Dim startTime As Single
+    Dim endTime As Single
         'Ask for user input
     yearValue = InputBox("What year would you like to run the analysis on?")
         
